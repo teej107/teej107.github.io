@@ -1,0 +1,123 @@
+@font-face
+{
+    font-family: 'Kissing Season';
+    src: url("assets/Kissing Season.ttf");
+}
+
+html, body
+{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-image: url("assets/background.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+}
+
+header
+{
+    font-family: 'Arial', sans-serif;
+    font-size: max(min(5vw, 64px), 24px);
+    text-transform: uppercase;
+    /*theme-color*/
+    background-color: #dc001e;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    text-wrap: nowrap;
+}
+
+a
+{
+    color: lightpink;
+}
+
+main.gabbie
+{
+    padding: 0.5em;
+    font-family: 'Kissing Season', "Arial", sans-serif;
+    font-size: clamp(36px, 10vw, 96px);
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    text-shadow: black 3px 3px;
+
+}
+
+main.gabbie.ghost
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: transparent;
+    text-shadow: rgba(0, 0, 0, 0.8) 0 15px 15px;
+    z-index: -1;
+}
+
+main.gabbie.ghost > *
+{
+    transform: scale(105%);
+}
+
+main.gabbie .title-letter
+{
+    font-size: 2em;
+    justify-self: center;
+}
+
+.gabbie-wrapper
+{
+    margin: 0 auto;
+    display: table;
+    position: relative;
+}
+
+.credits
+{
+    font-size: 12px;
+}
+
+.title-letter, .title-letter + * {
+    animation: gabbie-first-letter 1000ms ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1000ms;
+    opacity: 0;
+}
+
+.title-letter + * {
+    animation-name: gabbie-rest-of-letters;
+    animation-delay: 2500ms;
+}
+
+@keyframes gabbie-first-letter
+{
+    0% {
+        opacity: 0;
+        transform: translateY(-0.3em) scale(120%);
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@Keyframes gabbie-rest-of-letters {
+    0% {
+        opacity: 0;
+        transform: translateX(0.5em);
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
